@@ -42,7 +42,7 @@
 4. Установить зависимости  
     `pip install -r requirements.txt`
 5. Выполнить файл инциализациия MySQL  
-    `mysql -u root -p < init.sql`
+    `mysql -u root -p < mysql/init.sql`
 6. Выполнить миграции  
     `python manage.py migrate`
 7. Создать суперпользователя для доступа к панели администратора  
