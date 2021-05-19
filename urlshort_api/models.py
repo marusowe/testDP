@@ -6,8 +6,7 @@ import secrets
 
 class UrlShort(models.Model):
     full_url = models.URLField(verbose_name='Ссылка')
-    # todo убрать blank и null в поле hash И ПЕРЕИМЕНОВАТЬ ХЭШ В УРЛ_ХЭШ
-    hash = models.CharField(max_length=128, unique=True, blank=True, null=True, verbose_name='Хэш ссылки')
+    hash = models.CharField(max_length=128, unique=True, verbose_name='Хэш ссылки')
     user_session_key = models.CharField(max_length=70, verbose_name='Ключ сессии пользователя')
     created_at = models.DateField(auto_now_add=True, verbose_name='Создан')
 
