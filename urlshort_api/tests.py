@@ -53,9 +53,10 @@ class UrlShortApiTestCase(APITestCase):
     def test_get_user_urls(self):
         created_url_response = self.client.post(reverse('create_url'),
                                                 format='json', data=self.test_data)
-        get_response = self.client.get(reverse('list_urls'))
+        get_response = self.client.get(reverse('detail_url',
+                                               kwargs=dict(hash=created_url_response.data['hash'])))
         self.assertEqual(get_response.status_code, status.HTTP_200_OK)
-        self.assertEqual(get_response.data[0]['hash'], created_url_response.data['hash'])
+        self.assertEqual(get_response.data['hash'], created_url_response.data['hash'])
 
     def test_delete_user_urls(self):
         created_url_response = self.client.post(reverse('create_url'),
